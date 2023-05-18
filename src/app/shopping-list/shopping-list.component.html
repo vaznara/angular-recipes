@@ -1,12 +1,18 @@
 <div class="row">
     <div class="col-xs-10">
-        <app-shopping-list-edit></app-shopping-list-edit>
+        <app-shopping-list-edit (ingredientAdded)="addNewIngredient($event)"
+            (onClearIngredients)="clearIngredientsArray()"></app-shopping-list-edit>
         <hr>
         <ul class="list-group">
-            <a 
-                class="list-group-item" 
-                style="cursor: pointer;" *ngFor="let ingredient of ingredients">
-            {{ ingredient.name }}  ({{ ingredient.amount }})</a>
+            <div class="list-group-item" *ngFor="let ingredient of ingredients">
+                <div class="row">
+                    <div class="col-xs-6"><a style="cursor: pointer;">
+                            {{ ingredient.name }} ({{ ingredient.amount }})</a></div>
+                    <div class="col-xs-6"><button (click)="deleteIngredient(ingredient)"
+                            class="btn btn-danger">Delete</button></div>
+                </div>
+
+            </div>
         </ul>
     </div>
 </div>

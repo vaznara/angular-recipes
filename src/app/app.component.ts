@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+  currentPage: string = 'recipe';
 
+  switchNavigation(target: string) {
+    this.currentPage = target;
+  }
 }
