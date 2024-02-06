@@ -1,4 +1,4 @@
-import {EventEmitter, Injectable, Output} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {Recipe} from "./recipe-book.model";
 import {Ingredient} from "../shared/ingredient.model";
 
@@ -10,6 +10,7 @@ export class RecipeService {
 
   private recipes: Recipe[] = [
     new Recipe(
+      1,
       'A Test Recipe',
       'test Recipe description',
       'https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHJlY2lwZXxlbnwwfHwwfHw%3D&w=1000&q=80',
@@ -20,6 +21,7 @@ export class RecipeService {
       ]
     ),
     new Recipe(
+      2,
       'A Test Recipe 2 ',
       'test Recipe description 2',
       'https://i.ndtvimg.com/i/2015-10/urlai-roast_625x350_71444723419.jpg',
@@ -30,6 +32,7 @@ export class RecipeService {
       ]
     ),
     new Recipe(
+      3,
       'A Test Recipe 3 ',
       'test Recipe description 3',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9iMSUmvHYCX4iAHf9bXQmRLm0jZMC-89RKA&usqp=CAU',
@@ -44,6 +47,10 @@ export class RecipeService {
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getRecipe(id: number) {
+    return this.recipes.slice().find(item => item.id === id);
   }
 
 }
